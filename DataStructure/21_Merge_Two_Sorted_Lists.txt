@@ -2,49 +2,28 @@
  * Definition for singly-linked list.
  * struct ListNode {
  *     int val;
- *     struct ListNode *next;
+ *     struct ListNode * next;
  * };
  */
-
+ 
 typedef struct ListNode node_t;
-
-static node_t * CreateNewNode(const int value){
-    node_t * newNode = (node_t*)malloc(sizeof(node_t));
-    if(newNode){
-        newNode->val = value;
-        newNode->next = NULL;
-    }
-    return newNode;
-}
-
-static void Push(node_t * self, const int value)
-{ if(self) self->next = CreateNewNode(value); }
-
-static int CompareFunc(const int * left, const int * right)
-{ return (*left - *right); }
-
 node_t * mergeTwoLists(node_t * l1, node_t * l2){
-    int lenght = 0;
-    node_t * curr;
     
-    for(curr = l1; curr; lenght++) curr = curr->next;
-    for(curr = l2; curr; lenght++) curr = curr->next;
+    if(!l1) return l2;
+    if(!l2) return l1;
     
-    if(!lenght) return NULL;
-    
-    int i = 0, * values = (int*)malloc(lenght * sizeof(int));
-    
-    for(curr = l1; curr; ++i){ values[i] = curr->val; curr = curr->next; }
-    for(curr = l2; curr; ++i){ values[i] = curr->val; curr = curr->next; }
-    
-    qsort((void*)values,lenght,sizeof(int),CompareFunc);
-    
-    node_t * list = CreateNewNode(values[0]);
-    curr = list;
-    for(i=1; i<lenght; ++i){
-        Push(curr, values[i]);
+    node_t list;
+    node_t * curr = &list;
+
+    do{
+        curr->next = (l1->val < l2->val) ? l1 : l2;
+        if(curr->next==l1) l1 = l1->next;
+        else l2 = l2->next;
         curr = curr->next;
-    }
+    }while(l1 && l2);
     
-    return list;
+    if(l1) curr->next = l1;
+    else curr->next = l2;
+    
+    return list.next;
 }
