@@ -1,0 +1,50 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+typedef struct ListNode node_t;
+
+static node_t * CreateNewNode(const int value){
+    node_t * newNode = (node_t*)malloc(sizeof(node_t));
+    if(newNode){
+        newNode->val = value;
+        newNode->next = NULL;
+    }
+    return newNode;
+}
+
+static void Push(node_t * self, const int value)
+{ if(self) self->next = CreateNewNode(value); }
+
+static int CompareFunc(const int * left, const int * right)
+{ return (*left - *right); }
+
+node_t * mergeTwoLists(node_t * l1, node_t * l2){
+    int lenght = 0;
+    node_t * curr;
+    
+    for(curr = l1; curr; lenght++) curr = curr->next;
+    for(curr = l2; curr; lenght++) curr = curr->next;
+    
+    if(!lenght) return NULL;
+    
+    int i = 0, * values = (int*)malloc(lenght * sizeof(int));
+    
+    for(curr = l1; curr; ++i){ values[i] = curr->val; curr = curr->next; }
+    for(curr = l2; curr; ++i){ values[i] = curr->val; curr = curr->next; }
+    
+    qsort((void*)values,lenght,sizeof(int),CompareFunc);
+    
+    node_t * list = CreateNewNode(values[0]);
+    curr = list;
+    for(i=1; i<lenght; ++i){
+        Push(curr, values[i]);
+        curr = curr->next;
+    }
+    
+    return list;
+}
