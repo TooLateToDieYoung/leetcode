@@ -18,9 +18,9 @@ int TreeSize(const tree_t * self){
 }
 
 int * _InorderTraversal(tree_t * self, int * curr){
-    if(self->left) curr = _InorderTraversal(self->left, curr);
+    if(self->left)  { curr = _InorderTraversal(self->left,  curr); }
     *curr++ = self->val;
-    if(self->right) curr = _InorderTraversal(self->right, curr);
+    if(self->right) { curr = _InorderTraversal(self->right, curr); }
     return curr;
 }
 
@@ -29,8 +29,8 @@ int * inorderTraversal(tree_t * root, int * returnSize){
     
     *returnSize = TreeSize(root);
     int * ans = (int*)malloc((*returnSize)*sizeof(int));
+
     int * curr = ans;
     _InorderTraversal(root, curr);
-    
     return ans;
 }
