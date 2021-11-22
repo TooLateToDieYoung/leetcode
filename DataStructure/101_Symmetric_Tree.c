@@ -12,10 +12,5 @@ int CompareNodes(const tree_t * L, const tree_t * R){
 
 bool isSymmetric(const tree_t * root){
     if(root == NULL) return true;
-<<<<<<< HEAD
     return CompareNodes(root->left, root->right) == 0;
 }
-=======
-    return CompareRightNodes(root->left, root->right) == 0;
-}
->>>>>>> 1c957344a5c8dad27375f132dafb4bfd05d70402
