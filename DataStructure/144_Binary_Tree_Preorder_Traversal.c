@@ -18,10 +18,10 @@ int TreeSize(const tree_t * self){
     return (self) ? TreeSize(self->left) + TreeSize(self->right) + 1 : 0;
 }
 
-int * GetValue(const tree_t * self, int * curr){
+int * _PreorderTraversal(const tree_t * self, int * curr){
     *curr++ = self->val;
-    if(self->left)  { curr = GetValue(self->left, curr); }
-    if(self->right) { curr = GetValue(self->right,curr); }
+    if(self->left)  { curr = _PreorderTraversal(self->left, curr); }
+    if(self->right) { curr = _PreorderTraversal(self->right,curr); }
     return curr;
 }
 
@@ -32,6 +32,6 @@ int * preorderTraversal(tree_t * root, int* returnSize){
     *returnSize = TreeSize(root);
     int * curr, * ans = (int*)malloc((*returnSize)*sizeof(int));
     curr = ans;
-    GetValue(root,curr);
+    _PreorderTraversal(root,curr);
     return ans;
 }
