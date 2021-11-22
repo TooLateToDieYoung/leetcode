@@ -1,6 +1,6 @@
 typedef struct TreeNode tree_t;
 
-int CompareRightNodes(const tree_t * L, const tree_t * R){
+int CompareNodes(const tree_t * L, const tree_t * R){
     
     if(L == NULL && R != NULL) return 1;
     if(L != NULL && R == NULL) return 1;
