@@ -25,13 +25,14 @@ int * _PreorderTraversal(const tree_t * self, int * curr){
     return curr;
 }
 
-int * preorderTraversal(tree_t * root, int* returnSize){
+int * preorderTraversal(tree_t * root, int * returnSize){
     
     if(!root) return (int*)malloc((*returnSize = 0)*sizeof(int));
     
     *returnSize = TreeSize(root);
-    int * curr, * ans = (int*)malloc((*returnSize)*sizeof(int));
-    curr = ans;
-    _PreorderTraversal(root,curr);
+    int * ans = (int*)malloc((*returnSize)*sizeof(int));
+
+    int * curr = ans;
+    _PreorderTraversal(root, curr);
     return ans;
 }
