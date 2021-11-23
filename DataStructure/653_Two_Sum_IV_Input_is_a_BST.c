@@ -21,16 +21,10 @@ bool findTarget(const tree_t * const root, const int target){
     
     GetDataFromTree(root, curr);
     
-    for(i=0; i<size; ++i){
-        for(j=i+1; j<size; ++j){
-            if(arr[i]+arr[j] == target){
-                ans = true;
-                break;
-            }
-        }
-        if(ans) break;
-    }
-    
+    for(i=0; !ans && i<size; ++i)
+        for(j=i+1; !ans && j<size; ++j)
+            if(arr[i] + arr[j] == target) ans = true;
+
     free(arr);
     
     return ans;
