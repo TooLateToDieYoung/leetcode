@@ -1,13 +1,7 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     struct ListNode *next;
- * };
- */
+
 typedef struct ListNode node_t;
 
-/* First Trying Runtime = 12ms *//*
+/* First Trying Runtime = 12ms */
 node_t * removeElements(node_t * head, int val){
     
     if(!head) return NULL; // 本來就空
@@ -26,7 +20,7 @@ node_t * removeElements(node_t * head, int val){
     }
     
     return head;
-}*/
+}
 
 
 /* Second Trying Runtime = 8ms */
