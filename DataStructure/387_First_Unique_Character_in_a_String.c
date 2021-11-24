@@ -1,5 +1,4 @@
-// Second Trying Runtime = 4ms
-
+/* Second Trying Runtime = 4ms */
 int firstUniqChar(char * s){
     int count[26] = {0};
     char * curr = s;
@@ -15,8 +14,7 @@ int firstUniqChar(char * s){
     return -1;
 }
 
-/* First Trying Runtime = 20ms
-
+/* First Trying Runtime = 20ms */
 int firstUniqChar(char * s){
     char * check;
     bool found = true;
@@ -35,5 +33,5 @@ int firstUniqChar(char * s){
         else found = true;
     }
     return -1;
+}
 
-*/
