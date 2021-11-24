@@ -1,11 +1,4 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     struct ListNode * next;
- * };
- */
- 
+
 typedef struct ListNode node_t;
 node_t * mergeTwoLists(node_t * l1, node_t * l2){
     
