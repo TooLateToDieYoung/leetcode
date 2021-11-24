@@ -1,5 +1,4 @@
 /* Second Trying Runtime = 20ms */
-/*
 static int CompareFunc(const char * left, const char * right)
 { return (*left - *right); }
 
@@ -12,10 +11,9 @@ bool isAnagram(char * s, char * t){
     
     return !strcmp(s,t);
 }
-*/
+
 
 /* First Trying Runtime = 0ms */
-
 bool isAnagram(char * s, char * t){
     
     if(strlen(s)!=strlen(t)) return false;
