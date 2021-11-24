@@ -15,7 +15,7 @@ int majorityElement(int* nums, int numsSize){
     return result;
 }
 
-/* Second Trying Runtime = 20ms, Memory less than 15.18% */
+/* Second Trying Runtime = 20ms, Memory less than 22.37% */
 int _cmp(int * a, int * b) { return *a - *b; }
 
 int majorityElement(int* nums, int numsSize){
