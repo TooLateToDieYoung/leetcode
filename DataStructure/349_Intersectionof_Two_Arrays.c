@@ -1,3 +1,4 @@
+/* It's a messy coding. */
 
 int _cmp(const void * a, const void * b){ return *((int*)a) - *((int*)b); }
 
