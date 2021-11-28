@@ -166,7 +166,7 @@ int* findDisappearedNumbers(int * nums, int numsSize, int * returnSize){
         if(check[i] == 0) (*returnSize)++;
     
     int j = 0, * res = (int*)malloc( (*returnSize) * sizeof(int) );
-    for(int i = 0; i < numsSize; ++i)
+    for(int i = 0; i < numsSize && j < *returnSize; ++i)
         if(check[i] == 0) res[j++] = i + 1;
     
     free(check);
